@@ -1,4 +1,5 @@
-import Map from "@/components/shared/map";
+import DialogProvince from '@/components/shared/dialogProvince';
+import Map from '@/components/shared/map';
 export default function Home() {
   return (
     <main className="flex flex-col justify-center relative items-center min-h-screen w-full bg-black text-white">
@@ -8,6 +9,7 @@ export default function Home() {
       <div className="w-[80%]">
         <Map />
       </div>
+      <DialogProvince />
     </main>
   );
 }

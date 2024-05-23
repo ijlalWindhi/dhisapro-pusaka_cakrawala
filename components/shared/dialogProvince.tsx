@@ -20,7 +20,7 @@ export default function DialogProvince() {
     >
       <DialogContent className="md:max-w-5xl lg:max-w-6xl xl:max-w-7xl overflow-auto max-h-[80vh]">
         <DialogHeader>
-          <DialogTitle className="text-xl lg:text-2xl font-semibold">
+          <DialogTitle className="text-xl lg:text-2xl font-semibold font-vast-shadow text-red-500">
             Provinsi <span className="capitalize">{selectedProvince}</span>
           </DialogTitle>
         </DialogHeader>

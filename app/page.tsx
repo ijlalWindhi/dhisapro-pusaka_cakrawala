@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col justify-center relative items-center min-h-screen w-full bg-white text-white">
-      <h1 className="font-semibold text-5xl text-[#ff0000] absolute top-14 z-10">
+      <h1 className="font-semibold text-5xl text-[#ff0000] absolute top-14 z-10 font-vast-shadow">
         Pusaka Cakrawala
       </h1>
       <div className="w-[80%] z-10">

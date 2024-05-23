@@ -73,7 +73,7 @@ export default function CarouselProvince() {
           {dataProvince.map((item) => (
             <CarouselItem key={item.id}>
               <div className="flex flex-col gap-4 mt-4">
-                <h2 className="text-base lg:text-lg font-semibold">
+                <h2 className="text-base lg:text-lg font-vast-shadow font-semibold">
                   {item.title}
                 </h2>
                 <Image

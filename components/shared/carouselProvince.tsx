@@ -1,22 +1,23 @@
-'use client';
-import * as React from 'react';
-import { useGlobalStore } from '@/providers/global-store-providers';
-import { Province } from '@/types/province.type';
+"use client";
+import * as React from "react";
+import Image from "next/image";
+import { useGlobalStore } from "@/providers/global-store-providers";
+import { Province } from "@/types/province.type";
 
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from '@/components/ui/carousel';
-import { Button } from '@/components/ui/button';
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 // data
-import ProvinsiJawa from '@/mocks/provinsiJawa.json';
-import ProvinsiKalimantan from '@/mocks/provinsiKalimantan.json';
-import ProvinsiPapua from '@/mocks/provinsiPapua.json';
-import ProvinsiSulawesi from '@/mocks/provinsiSulawesi.json';
-import ProvinsiSumatra from '@/mocks/provinsiSumatra.json';
+import ProvinsiJawa from "@/mocks/provinsiJawa.json";
+import ProvinsiKalimantan from "@/mocks/provinsiKalimantan.json";
+import ProvinsiPapua from "@/mocks/provinsiPapua.json";
+import ProvinsiSulawesi from "@/mocks/provinsiSulawesi.json";
+import ProvinsiSumatra from "@/mocks/provinsiSumatra.json";
 
 export default function CarouselProvince() {
   const { selectedProvince } = useGlobalStore((state) => state);
@@ -24,7 +25,7 @@ export default function CarouselProvince() {
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
   const [dataProvince, setDataProvince] = React.useState<Province[]>(
-    [] as Province[],
+    [] as Province[]
   );
 
   React.useEffect(() => {
@@ -35,26 +36,26 @@ export default function CarouselProvince() {
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
 
-    api.on('select', () => {
+    api.on("select", () => {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
 
   React.useEffect(() => {
     switch (selectedProvince) {
-      case 'jawa':
+      case "jawa":
         setDataProvince(ProvinsiJawa);
         break;
-      case 'kalimantan':
+      case "kalimantan":
         setDataProvince(ProvinsiKalimantan);
         break;
-      case 'papua':
+      case "papua":
         setDataProvince(ProvinsiPapua);
         break;
-      case 'sulawesi':
+      case "sulawesi":
         setDataProvince(ProvinsiSulawesi);
         break;
-      case 'sumatra':
+      case "sumatra":
         setDataProvince(ProvinsiSumatra);
         break;
       default:
@@ -64,16 +65,28 @@ export default function CarouselProvince() {
 
   return (
     <div>
-      <Carousel setApi={setApi} className="w-full max-w-6xl mx-auto">
+      <Carousel
+        setApi={setApi}
+        className="w-full md:max-w-3xl lg:max-w-4xl xl:max-w-6xl mx-auto"
+      >
         <CarouselContent>
           {dataProvince.map((item) => (
             <CarouselItem key={item.id}>
               <div className="flex flex-col gap-4 mt-4">
-                <h2 className="text-xl font-semibold">{item.title}</h2>
-                <p className="text-sm text-center">
-                  Sumber:{' '}
+                <h2 className="text-base lg:text-lg font-semibold">
+                  {item.title}
+                </h2>
+                <Image
+                  src={item.thumbnail}
+                  alt={item.title}
+                  height={100}
+                  width={700}
+                  className="rounded-lg mx-auto max-h-72 object-cover object-center"
+                />
+                <p className="text-xs lg:text-sm text-center">
+                  Sumber:{" "}
                   <a
-                    href={item.source ?? ''}
+                    href={item.source ?? ""}
                     target="_blank"
                     className="hover:text-blue-500"
                   >
@@ -81,7 +94,10 @@ export default function CarouselProvince() {
                   </a>
                 </p>
                 {item.description.map((desc) => (
-                  <p className="text-justify indent-10" key={desc}>
+                  <p
+                    className="text-justify indent-10 text-sm lg:text-base"
+                    key={desc}
+                  >
                     {desc}
                   </p>
                 ))}

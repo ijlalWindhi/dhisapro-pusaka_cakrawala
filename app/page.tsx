@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     if (window.screen.width < 900) {
       alert(
-        "Website ini hanya tersedia untuk desktop atau ukuran layar lebih dari 900px"
+        "Untuk kenyamanan tampilan, silahkan gunakan perangkat dengan ukuran layar lebih dari 900px"
       );
     }
   }, []);

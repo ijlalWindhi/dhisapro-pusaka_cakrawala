@@ -4,15 +4,20 @@ import { useEffect } from "react";
 import Image from "next/image";
 
 import DialogProvince from "@/components/shared/dialogProvince";
+import DialogWarning from "@/components/shared/dialogWarning";
+import DialogTutorial from "@/components/shared/dialogTutorial";
 import Map from "@/components/shared/map";
+import { useGlobalStore } from "@/providers/global-store-providers";
 
 export default function Home() {
+  const { setIsModalWarningOpen, setIsModalTutorialOpen } = useGlobalStore(
+    (state) => state
+  );
   useEffect(() => {
     if (window.screen.width < 900) {
-      alert(
-        "Untuk kenyamanan tampilan, silahkan gunakan perangkat dengan ukuran layar lebih dari 900px"
-      );
+      setIsModalWarningOpen(true);
     }
+    setIsModalTutorialOpen(true);
   }, []);
 
   return (
@@ -24,6 +29,8 @@ export default function Home() {
         <Map />
       </div>
       <DialogProvince />
+      <DialogWarning />
+      <DialogTutorial />
       <Image
         src={"/images/bg.png"}
         alt="background"

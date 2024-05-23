@@ -1,10 +1,10 @@
-'use client';
-import React, { useState } from 'react';
-import { useGlobalStore } from '@/providers/global-store-providers';
+"use client";
+import React, { useState } from "react";
+import { useGlobalStore } from "@/providers/global-store-providers";
 
 function Map() {
   const { setSelectedProvince, setIsModalOpen } = useGlobalStore(
-    (state) => state,
+    (state) => state
   );
   const [type, setType] = useState<string | null>(null);
 
@@ -22,13 +22,15 @@ function Map() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1045.24 361.64"
-        fill="#eaeaea"
+        fill="#e5383b"
       >
         <svg
-          fill={type == 'kalimantan' ? '#ff0000' : '#eaeaea'}
-          onMouseEnter={() => handleHover('kalimantan')}
+          fill={type == "kalimantan" ? "#a4161a" : "#e5383b"}
+          stroke="#000"
+          strokeWidth={1}
+          onMouseEnter={() => handleHover("kalimantan")}
           onMouseLeave={() => handleHover(null)}
-          onClick={() => handleClick('kalimantan')}
+          onClick={() => handleClick("kalimantan")}
           className={`cursor-pointer`}
         >
           <path
@@ -37,10 +39,12 @@ function Map() {
           />
         </svg>
         <svg
-          fill={type == 'sulawesi' ? '#ff0000' : '#eaeaea'}
-          onMouseEnter={() => handleHover('sulawesi')}
+          fill={type == "sulawesi" ? "#a4161a" : "#e5383b"}
+          stroke="#000"
+          strokeWidth={1}
+          onMouseEnter={() => handleHover("sulawesi")}
           onMouseLeave={() => handleHover(null)}
-          onClick={() => handleClick('sulawesi')}
+          onClick={() => handleClick("sulawesi")}
           className="cursor-pointer"
         >
           <path
@@ -53,10 +57,12 @@ function Map() {
           />
         </svg>
         <svg
-          fill={type == 'papua' ? '#ff0000' : '#eaeaea'}
-          onMouseEnter={() => handleHover('papua')}
+          fill={type == "papua" ? "#a4161a" : "#e5383b"}
+          stroke="#000"
+          strokeWidth={1}
+          onMouseEnter={() => handleHover("papua")}
           onMouseLeave={() => handleHover(null)}
-          onClick={() => handleClick('papua')}
+          onClick={() => handleClick("papua")}
           className="cursor-pointer"
         >
           <path
@@ -85,10 +91,12 @@ function Map() {
           />
         </svg>
         <svg
-          fill={type == 'jawa' ? '#ff0000' : '#eaeaea'}
-          onMouseEnter={() => handleHover('jawa')}
+          fill={type == "jawa" ? "#a4161a" : "#e5383b"}
+          stroke="#000"
+          strokeWidth={1}
+          onMouseEnter={() => handleHover("jawa")}
           onMouseLeave={() => handleHover(null)}
-          onClick={() => handleClick('jawa')}
+          onClick={() => handleClick("jawa")}
           className="cursor-pointer"
         >
           <path
@@ -133,10 +141,12 @@ function Map() {
           />
         </svg>
         <svg
-          fill={type == 'sumatra' ? '#ff0000' : '#eaeaea'}
-          onMouseEnter={() => handleHover('sumatra')}
+          fill={type == "sumatra" ? "#a4161a" : "#e5383b"}
+          stroke="#000"
+          strokeWidth={1}
+          onMouseEnter={() => handleHover("sumatra")}
           onMouseLeave={() => handleHover(null)}
-          onClick={() => handleClick('sumatra')}
+          onClick={() => handleClick("sumatra")}
           className="cursor-pointer"
         >
           <path
